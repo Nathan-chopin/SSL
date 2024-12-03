@@ -1,0 +1,7 @@
+/.venv
+/Mana
+/env_msi
+/installation_venv.pdf
+/main.py
+/requirements.txt
+/test_venv.ipynb

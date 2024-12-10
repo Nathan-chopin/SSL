@@ -4,6 +4,7 @@ import plotly.express as px
 import msicpe.ssl as msi
 import scipy.io as io
 
+nu_p = 21000
 
 def porte(t):
     y=(abs(t)<0.5)
@@ -17,3 +18,7 @@ t = np.arange(0, 5, 1 / len(signal_multiplex))
 
 tf_multiplex = msi.TransFourier(signal_multiplex,t)
 
+
+
+
+cos = np.cos(2 * np.pi * nu_p * t)

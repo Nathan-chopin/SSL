@@ -29,4 +29,7 @@ fig = px.line(df, x='temps', y='signal')
 fig.update_layout(yaxis_title='Signal', xaxis_title='temps(s)',
 title = 'Tracé du signal',
 template='plotly_white', width=500, height=300)
+
+# IV) Afficher
 fig.show()
+

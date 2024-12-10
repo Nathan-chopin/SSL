@@ -12,10 +12,10 @@ def porte(t):
     return np.float16(y)
 
 
-rdic = io.loadmat('signal_multiplex.mat')
-signal_multiplex = rdic['melange'].squeeze()
+rdic = io.loadmat('SSL/Projet/demodulation/sig_mod_fp_21kHz.mat')
+signal_multiplex = rdic['sig_mod_fp_21kHz'].squeeze()
 
-t = np.arange(0, 5, 1 / len(signal_multiplex))
+t = np.arange(0, 5, 5 * ( 1 / len(signal_multiplex) ))
 Fe = 96000 #Hz
 
 cos = np.cos(2 * np.pi * nu_p * t)

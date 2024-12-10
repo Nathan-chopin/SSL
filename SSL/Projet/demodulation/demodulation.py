@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import msicpe.ssl as msi
 import scipy.io as io
+import soundfile as sf
 
 nu_p = 21000
 
@@ -15,6 +16,7 @@ rdic = io.loadmat('signal_multiplex.mat')
 signal_multiplex = rdic['melange'].squeeze()
 
 t = np.arange(0, 5, 1 / len(signal_multiplex))
+Fe = 96000 #Hz
 
 cos = np.cos(2 * np.pi * nu_p * t)
 signal_multiplex *= cos
@@ -33,3 +35,5 @@ template='plotly_white', width=500, height=300)
 # IV) Afficher
 fig.show()
 
+sf.write('signal.wav', np.int16(signal), Fe)
+msi.audioread('signal.wav',True)

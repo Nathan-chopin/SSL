@@ -9,15 +9,15 @@ def porte(t,T):
     y=(abs(t)<T/2)
     return np.float16(y)
 
-rdic = io.loadmat('signal_multiplex.mat')
-signal_multiplex = rdic['melange'].squeeze()
+rdic = io.loadmat('signal.mat')
+signal = rdic['signal'].squeeze()
 Fs = 96000
 Ts = 1/Fs
 t=[]
-for i in range(len(f)):
+for i in range(len(signal)):
     t.append(0+i*Ts)
 
-df = pd.DataFrame({'temps':t, 'signal':f})
+df = pd.DataFrame({'temps':t, 'signal':signal})
 fig = px.line(df, x='temps', y='signal')
 fig.update_layout(xaxis_title='temps', yaxis_title='signal',
 title = 'Tracé du signal',

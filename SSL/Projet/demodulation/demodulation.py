@@ -26,3 +26,18 @@ cos = np.cos(2 * np.pi * nu_p * t)
 
 tf_filtre = tf_filtre * porte(t/2*nu_p)
 signal,t = msi.TransFourierInv(tf_filtre, nu)
+
+# I) Creer sa structure de données
+df = pd.DataFrame({'temps':t, 'signal': s, 'frequence' : nu, 'tf_real' : tf.real, 'tf_imag' : tf.imag})
+
+# II) Creer sa figure
+fig = px.line(df, x='temps', y='signal')
+
+# III) Creer son layout
+fig.update_layout(yaxis_title='Argument 1', xaxis_title='temps(s)',
+#xaxis_range=..., yaxis_range=..., # if needed
+title = 'Tracé de gamma',
+template='plotly_white', width=500, height=300)
+
+# IV) Afficher
+fig.show()

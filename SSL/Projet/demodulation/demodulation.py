@@ -6,10 +6,11 @@ import scipy.io as io
 
 
 
-def porte(t, T):
-    y=(abs(t)<T/2)
+def porte(t):
+    y=(abs(t)<0.5)
     return np.float16(y)
 
 
 rdic = io.loadmat('signal_multiplex.mat')
 signal_multiplex = rdic['melange'].squeeze()
+

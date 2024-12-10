@@ -16,7 +16,10 @@ signal_multiplex = rdic['melange'].squeeze()
 
 t = np.arange(0, 5, 1 / len(signal_multiplex))
 
-tf_multiplex = msi.TransFourier(signal_multiplex,t)
+tf_multiplex, nu = msi.TransFourier(signal_multiplex,t)
 tf_filtre = tf_multiplex * porte((t - 21000)/6000) + tf_multiplex * porte((t + 21000)/6000)
 cos = np.cos(2 * np.pi * nu_p * t)
-tf_filtre = 
+
+
+tf_filtre = tf_filtre * porte(t/2*nu_p)
+signal,t = msi.TransFourierInv(tf_filtre, nu)

@@ -5,7 +5,6 @@ import msicpe.ssl as msi
 import scipy.io as io
 
 
-
 def porte(t):
     y=(abs(t)<0.5)
     return np.float16(y)
@@ -13,4 +12,8 @@ def porte(t):
 
 rdic = io.loadmat('signal_multiplex.mat')
 signal_multiplex = rdic['melange'].squeeze()
+
+t = np.arange(0, 5, 1 / len(signal_multiplex))
+
+tf_miltiplex = msi.TransFourier(signal_multiplex,t)
 

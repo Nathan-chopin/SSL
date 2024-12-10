@@ -15,5 +15,5 @@ signal_multiplex = rdic['melange'].squeeze()
 
 t = np.arange(0, 5, 1 / len(signal_multiplex))
 
-tf_miltiplex = msi.TransFourier(signal_multiplex,t)
+tf_multiplex = msi.TransFourier(signal_multiplex,t)
 

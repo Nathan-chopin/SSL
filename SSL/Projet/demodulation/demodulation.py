@@ -18,3 +18,18 @@ t = np.arange(0, 5, 1 / len(signal_multiplex))
 tf_multiplex = msi.TransFourier(signal_multiplex,t)
 tf_filtre = tf_multiplex * porte((t - 21000)/6000) + tf_multiplex * porte((t + 21000)/6000)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tf_filtre = 

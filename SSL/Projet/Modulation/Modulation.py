@@ -74,4 +74,4 @@ fig.show()
 
 mdic = {"sig_mod_fp_21kHz": sig_mod}
 
-io.savemat('sig_mod_fp_21kHz.mat', mdict=mdic)
+io.savemat('groupe_c1_phrase_24.mat', mdict=mdic)

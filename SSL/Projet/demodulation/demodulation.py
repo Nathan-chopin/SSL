@@ -36,7 +36,7 @@ tf_multiplex_fin, nu = msi.TransFourier(signal_multiplex,t) # visualisation du s
 df = pd.DataFrame({'temps':nu, 'signal1': np.abs(tf_multiplex_ini), 'signal2': np.abs(tf_multiplex_cos), 'signal3': np.abs(tf_multiplex_fin)})
 fig = px.line(df, x='temps', y='signal1')
 fig.update_layout(yaxis_title='tf du Signal (ini)', xaxis_title='fréquence(Hz)',
-title = 'Tracé du signal',
+title = 'Tracé du signal fréquentiel initial',
 template='plotly_white', width=500, height=300)
 
 # IV) Afficher
@@ -44,7 +44,7 @@ fig.show()
 
 fig = px.line(df, x='temps', y='signal2')
 fig.update_layout(yaxis_title='tf du Signal (cos)', xaxis_title='fréquence(Hz)',
-title = 'Tracé du signal',
+title = 'Tracé du signal fréquentiel post-démodulation',
 template='plotly_white', width=500, height=300)
 
 # IV) Afficher
@@ -52,7 +52,7 @@ fig.show()
 
 fig = px.line(df, x='temps', y='signal3')
 fig.update_layout(yaxis_title='tf du Signal (fin)', xaxis_title='fréquence(Hz)',
-title = 'Tracé du signal',
+title = 'Tracé du signal fréquentiel post-filtrage',
 template='plotly_white', width=500, height=300)
 
 # IV) Afficher

@@ -5,9 +5,6 @@ import msicpe.ssl as msi
 import soundfile as sf
 import scipy.io as io
 
-def porte(t,T): #Permet de créer des portes de largeur T
-    y=(abs(t)<T/2)
-    return np.float16(y)
 
 rdic = io.loadmat('Modulation/signal.mat') 
 signal = rdic['signal'].squeeze() 

@@ -9,7 +9,7 @@ def porte(t,T):
     y=(abs(t)<T/2)
     return np.float16(y)
 
-rdic = io.loadmat('SSL/Projet/Modulation/signal.mat')
+rdic = io.loadmat('Modulation/signal.mat')
 signal = rdic['signal'].squeeze()
 Fs = 96000
 Ts = 1/Fs

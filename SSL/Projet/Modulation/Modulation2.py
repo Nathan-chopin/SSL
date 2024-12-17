@@ -56,9 +56,7 @@ template='plotly_white', width=500, height=300)
 fig.show()
 
 #Modulation du signal et tracé du signal modulé
-sig_mod = []
-for i in range(len(t)):
-    sig_mod.append(sig_filtre[i] * np.cos(2 * np.pi * 21000 * t[i]))
+sig_mod = (signal.hilbert(signal_filtre)*np.cos(2 * np.pi * 21000 * t[i]))/2
 
 df = pd.DataFrame({'temps':t, 'signal':sig_mod})
 fig = px.line(df, x='temps', y='signal')

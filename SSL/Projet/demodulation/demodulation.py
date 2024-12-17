@@ -13,7 +13,7 @@ def porte(t):
 
 
 rdic = io.loadmat('SSL/Projet/demodulation/groupe_1_Melange-17-Dec-2024.mat')
-signal_multiplex = rdic['sig_mod_fp_21kHz'].squeeze()
+signal_multiplex = rdic['melange'].squeeze()
 
 t = np.arange(0, 5, 5 * ( 1 / len(signal_multiplex) ))
 Fe = 96000 #Hz

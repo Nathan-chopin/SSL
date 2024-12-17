@@ -21,6 +21,7 @@ cos = np.cos(2 * np.pi * nu_p * t)
 signal_multiplex *= cos
 
 tf_multiplex, nu = msi.TransFourier(signal_multiplex,t) #
+signal_multiplex = msi.PasseBas(signal_multiplex, Fe, 2*nu_p)          # a changer
 
 # tracé du signal
 df = pd.DataFrame({'temps':t, 'signal': tf_multiplex})

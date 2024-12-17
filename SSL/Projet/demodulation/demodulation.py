@@ -21,7 +21,7 @@ Fe = 96000 #Hz
 tf_multiplex_ini, nu = msi.TransFourier(signal_multiplex,t) 
 
 
-cos = np.cos(2 * np.pi * nu_p * t)
+cos = np.cos(2 * np.pi * nu_p * t)*150000
 signal_multiplex *= cos
 
 tf_multiplex_cos, nu = msi.TransFourier(signal_multiplex,t) 
@@ -31,7 +31,7 @@ signal_multiplex = msi.PasseBas(signal_multiplex, Fe, 3000)
 
 
 tf_multiplex_fin, nu = msi.TransFourier(signal_multiplex,t) 
-
+"""
 # tracé du signal
 df = pd.DataFrame({'temps':nu, 'signal1': np.abs(tf_multiplex_ini), 'signal2': np.abs(tf_multiplex_cos), 'signal3': np.abs(tf_multiplex_fin)})
 fig = px.line(df, x='temps', y='signal1')
@@ -57,6 +57,6 @@ template='plotly_white', width=500, height=300)
 
 # IV) Afficher
 fig.show()
-
+"""
 sf.write('signal.wav', np.int16(signal_multiplex), Fe)
 msi.audioread('signal.wav',True)

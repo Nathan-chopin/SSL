@@ -18,16 +18,16 @@ signal_multiplex = rdic['melange'].squeeze()
 t = np.arange(0, 5, 5 * ( 1 / len(signal_multiplex) ))
 Fe = 96000 #Hz
 
-tf_multiplex_ini, nu = msi.TransFourier(signal_multiplex,t) 
+tf_multiplex_ini, nu = msi.TransFourier(signal_multiplex,t) # visualisation du signal fréquentiel avant démodulation
 
 
-cos = np.cos(2 * np.pi * nu_p * t)*150000
-signal_multiplex *= cos
+cos = np.cos(2 * np.pi * nu_p * t)*150000 
+signal_multiplex *= cos # démodulation plus augmentation de l'amplitude car signal inaudible
 
-tf_multiplex_cos, nu = msi.TransFourier(signal_multiplex,t) 
+tf_multiplex_cos, nu = msi.TransFourier(signal_multiplex,t) # visualisation du signal fréquentiel post démodulation
 
 
-signal_multiplex = msi.PasseBas(signal_multiplex, Fe, 3000)
+signal_multiplex = msi.PasseBas(signal_multiplex, Fe, 3000) # 
 
 
 tf_multiplex_fin, nu = msi.TransFourier(signal_multiplex,t) 

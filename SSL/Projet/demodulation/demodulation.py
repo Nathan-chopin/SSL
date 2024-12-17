@@ -27,11 +27,11 @@ signal_multiplex *= cos # démodulation plus augmentation de l'amplitude car sig
 tf_multiplex_cos, nu = msi.TransFourier(signal_multiplex,t) # visualisation du signal fréquentiel post démodulation
 
 
-signal_multiplex = msi.PasseBas(signal_multiplex, Fe, 3000) # 
+signal_multiplex = msi.PasseBas(signal_multiplex, Fe, 3000) # fc = 3000 car intervalle de 6kHz
 
 
-tf_multiplex_fin, nu = msi.TransFourier(signal_multiplex,t) 
-"""
+tf_multiplex_fin, nu = msi.TransFourier(signal_multiplex,t) # visualisation du signal fréquentiel post filtrage
+
 # tracé du signal
 df = pd.DataFrame({'temps':nu, 'signal1': np.abs(tf_multiplex_ini), 'signal2': np.abs(tf_multiplex_cos), 'signal3': np.abs(tf_multiplex_fin)})
 fig = px.line(df, x='temps', y='signal1')
@@ -57,6 +57,6 @@ template='plotly_white', width=500, height=300)
 
 # IV) Afficher
 fig.show()
-"""
-sf.write('signal.wav', np.int16(signal_multiplex), Fe)
-msi.audioread('signal.wav',True)
+
+sf.write('signal.wav', np.int16(signal_multiplex), Fe) #création du signal démodulé
+msi.audioread('signal.wav',True)# lecture du signal démodulé

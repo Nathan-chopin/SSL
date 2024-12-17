@@ -17,7 +17,6 @@ signal_multiplex = rdic['sig_mod_fp_21kHz'].squeeze()
 
 t = np.arange(0, 5, 5 * ( 1 / len(signal_multiplex) ))
 Fe = 96000 #Hz
-
 cos = np.cos(2 * np.pi * nu_p * t)
 signal_multiplex *= cos
 
@@ -26,7 +25,7 @@ tf_filtre = msi.PasseBas(tf_multiplex, Fe, 2*nu_p)          # a changer
 signal,t = msi.TransFourierInv(tf_filtre, nu)           #
 
 # tracé du signal
-df = pd.DataFrame({'temps':t, 'signal': signal})
+df = pd.DataFrame({'temps':t, 'signal': tf_multiplex})
 fig = px.line(df, x='temps', y='signal')
 fig.update_layout(yaxis_title='Signal', xaxis_title='temps(s)',
 title = 'Tracé du signal',

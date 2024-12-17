@@ -21,9 +21,9 @@ Fe = 96000 #Hz
 cos = np.cos(2 * np.pi * nu_p * t)
 signal_multiplex *= cos
 
-tf_multiplex, nu = msi.TransFourier(signal_multiplex,t)
-tf_filtre =tf_multiplex * porte(t/2*nu_p)
-signal,t = msi.TransFourierInv(tf_filtre, nu)
+tf_multiplex, nu = msi.TransFourier(signal_multiplex,t) #
+tf_filtre =tf_multiplex * porte(t/2*nu_p)               # a changer
+signal,t = msi.TransFourierInv(tf_filtre, nu)           #
 
 # tracé du signal
 df = pd.DataFrame({'temps':t, 'signal': signal})

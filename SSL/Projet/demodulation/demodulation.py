@@ -28,7 +28,7 @@ tf_multiplex, nu = msi.TransFourier(signal_multiplex,t)
 # tracé du signal
 df = pd.DataFrame({'temps':nu, 'signal': np.abs(tf_multiplex)})
 fig = px.line(df, x='temps', y='signal')
-fig.update_layout(yaxis_title='Signal', xaxis_title='temps(s)',
+fig.update_layout(yaxis_title='tf du Signal', xaxis_title='fréquence(Hz)',
 title = 'Tracé du signal',
 template='plotly_white', width=500, height=300)
 

@@ -12,7 +12,7 @@ signal = rdic['signal'].squeeze()
 Fs = 96000
 Ts = 1/Fs
 
-#Crétaion du vecteur temporel t
+#Création du vecteur temporel t
 t=[]
 for i in range(len(signal)):
     t.append(0+i*Ts)

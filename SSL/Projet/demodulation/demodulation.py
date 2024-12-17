@@ -22,7 +22,7 @@ cos = np.cos(2 * np.pi * nu_p * t)
 signal_multiplex *= cos
 
 tf_multiplex, nu = msi.TransFourier(signal_multiplex,t) #
-tf_filtre =tf_multiplex * porte(t/2*nu_p)               # a changer
+tf_filtre = msi.PasseBas(tf_multiplex, Fe, 2*nu_p)          # a changer
 signal,t = msi.TransFourierInv(tf_filtre, nu)           #
 
 # tracé du signal
